@@ -1,6 +1,7 @@
-data/cache/
-*.pyc
 __pycache__/
+*.pyc
+data/cache/
+*.pkl
 .DS_Store
-venv/
-rb19-env/
+.env
+outputs/*.mp4

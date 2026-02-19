@@ -1,0 +1,16 @@
+---
+car:
+  name: "RB19"
+  team: "Red Bull"
+  power_hp: 950
+  weight_kg: 798
+  rake_mm: 40      # Pre-fix high rake (porpoising issue)
+  cd_baseline: 0.90
+  downforce_kg: 850  # @250kph
+  
+track:
+  name: "Miami International Autodrome"
+  year: 2023
+  lap_record: "1:19.5"  # Verstappen Q3 pole
+  length_km: 5.412
+  corners: 19

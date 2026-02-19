@@ -1,0 +1,8 @@
+name: rb19-optimizer
+introduction:
+  headline: "RB19 Lap Optimizer - Red Bull 2023 Analysis"
+  description: "FastF1 pipeline validating flexi-floor fix (0.8s/lap Miami)"
+spec:
+  python: 3.11
+  src: src/dashboard.py
+  requirements: requirements.txt

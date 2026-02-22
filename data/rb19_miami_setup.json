@@ -1,0 +1,11 @@
+{
+  "RB19_Miami_FloorFix": {
+    "rake_baseline_mm": 40,
+    "rake_fixed_mm": 35,
+    "cd_baseline": 0.9,
+    "cd_fixed": 0.894375,
+    "lap_gain_expected": "0.8s",
+    "stint_gain_10laps": "5.4s",
+    "verstappen_pole": "1:19.8"
+  }
+}

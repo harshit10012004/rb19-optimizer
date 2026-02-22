@@ -50,3 +50,27 @@ c3.metric("📏 Laps", len(df))
 
 st.balloons()
 st.success("🚀 Day 2 COMPLETE - Ready for GitHub + HuggingFace!")
+
+# Add this to END of your existing dashboard.py (after metrics section)
+st.subheader("🔧 Day 3: Floor Physics Simulation")
+
+# Physics controls
+rake_mm = st.slider("Rake Height (mm)", 30, 45, 35, 1)
+col1, col2 = st.columns(2)
+
+with col1:
+    st.metric("Drag Coefficient", f"{rb19.drag_coefficient(rake_mm):.3f}")
+with col2:
+    st.metric("Lap Time Gain", f"{rb19.lap_time_gain(rake_mm):.2f}s")
+
+# Interactive rake curve
+rakes = np.linspace(30, 45, 100)
+cd_curve = [rb19.drag_coefficient(r) for r in rakes]
+gain_curve = [rb19.lap_time_gain(r) for r in rakes]
+
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=rakes, y=cd_curve, name='Cd', line=dict(color='red')))
+fig.add_trace(go.Scatter(x=rakes, y=gain_curve, name='Lap Gain', 
+                        yaxis="y2", line=dict(color='green')))
+fig.update_layout(title="RB19 Rake Optimization")
+st.plotly_chart(fig, use_container_width=True)

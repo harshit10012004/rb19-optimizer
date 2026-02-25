@@ -1,17 +1,6 @@
 services:
   - type: web
     name: rb19-optimizer
-    env: python
-    region: oregon
-    plan: free
-    buildCommand: pip install -r requirements.txt --no-cache-dir
-    startCommand: streamlit run src/dashboard.py --server.port $PORT --server.address 0.0.0.0 --server.headless true --server.enableCORS false
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.9
-      - key: FASTF1_ENABLE_CACHE
-        value: "false"  # Stateless deploys
-      - key: STREAMLIT_BROWSER_GATHER_USAGE_STATS
-        value: "false"
-    autoDeploy: true
-    healthCheckPath: /_stcore/health
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run src/dashboard.py --server.port $PORT --server.address 0.0.0.0

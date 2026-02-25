@@ -1,34 +1,7 @@
-# RB19 Lap Optimizer - PRODUCTION (Modal + Streamlit + Jupyter)
-# Compatible: Python 3.11 | Zero conflicts | 12 packages
-
-# Core Data Analysis
+streamlit==1.40.0
 pandas==2.2.3
 numpy==1.26.4
-
-# F1 Telemetry (Day 1)
-fastf1==3.8.1
-
-# Dashboards (Day 2 + 4)
-streamlit==1.40.0
 plotly==5.24.0
-
-# Physics (Day 3)
+fastf1==3.8.1
 pyyaml==6.0.2
-
-# Modal Serverless (Day 4 - 10/10 edge)
-modal==0.66.11
-
-# Notebooks (Day 3)
-jupyter==1.0.0
-
-# Modal Web Framework
-fastapi==0.115.0
-uvicorn[standard]==0.30.6
-
-# Utilities
-python-dotenv==1.0.1
-
-# Exports
-openpyxl==3.1.5
-
-gunicorn==22.0.0
+kaleido==0.2.1  # Plotly exports

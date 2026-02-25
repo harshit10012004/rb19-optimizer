@@ -3,6 +3,17 @@ import pandas as pd
 import plotly.express as px
 import numpy as np
 
+import os
+import streamlit as st
+
+# Production port binding
+port = int(os.environ.get("PORT", 8501))
+st.server.port = port
+st.server.address = "0.0.0.0"
+
+# Your existing dashboard code...
+
+
 st.set_page_config(layout="wide")
 st.title("🦁 RB19 Lap Optimizer")
 

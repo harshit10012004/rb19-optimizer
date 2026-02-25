@@ -8,7 +8,6 @@ import streamlit as st
 
 # Production port binding
 port = int(os.environ.get("PORT", 8501))
-st.server.port = port
 st.server.address = "0.0.0.0"
 
 # Your existing dashboard code...

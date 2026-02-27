@@ -84,3 +84,31 @@ fig.add_trace(go.Scatter(x=rakes, y=gain_curve, name='Lap Gain',
                         yaxis="y2", line=dict(color='green')))
 fig.update_layout(title="RB19 Rake Optimization")
 st.plotly_chart(fig, use_container_width=True)
+
+# Add to dashboard.py (after physics section)
+if st.button("🚗 DOWNLOAD iRACING SETUP (.sto)"):
+    setup = IRacingSetup(rake_mm, gain)
+    sto_content = setup.generate_sto()
+    
+    st.download_button(
+        label="💾 Download RB19 Setup",
+        data=sto_content,
+        file_name=f"rb19_{rake_mm}mm_miami.sto",
+        mime="text/plain"
+    )
+    
+    # JSON export
+    json_data = setup.generate_json()
+    st.json(json_data)
+    st.success("✅ iRacing setup ready for Documents/iRacing/setups/rb19/")
+
+# Leaderboard
+if st.button("🏆 Save to Leaderboard"):
+    save_lap(st.session_state.username, rake_mm, gain, gain*10)
+    st.success("✅ Lap saved!")
+
+
+# Leaderboard section
+st.subheader("🏆 Global Leaderboard")
+leaderboard = pd.read_sql("SELECT * FROM leaderboards ORDER BY stint_gain DESC LIMIT 10", get_connection())
+st.dataframe(leaderboard)
